@@ -1,69 +1,65 @@
-# React + TypeScript + Vite
+# 🌐 COALH - Página Web Institucional
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es el repositorio del sitio web oficial del **Colegio Adventista Libertad Horeb** (COALH), una SPA estática desarrollada con React, Vite y TailwindCSS, hospedada en GitHub Pages.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías principales
 
-## Expanding the ESLint configuration
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [GitHub Pages](https://pages.github.com/)
+- ESLint & Prettier
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📦 Requisitos previos
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Asegúrate de tener instalados:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Node.js (v18 o superior): https://nodejs.org/
+- Git: https://git-scm.com/
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠️ Instalación y ejecución local
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Clona el repositorio**
+
+git clone https://github.com/coalh23/coalh23.git
+cd coalh23
+
+2. **Instala las dependencias y ejecuta**
+  npm install
+  npm run dev
+
+3. **En tu navegador abre **
+  http://localhost:5173
+
+**Estructura de carpetas**
+
+/coalh23
+├── public/                     # Archivos estáticos públicos (Imagenes)
+│   └── INICIO/
+│
+├── src/                        # Código fuente principal
+│   ├── assets/                # Recursos estáticos (íconos, tipografías, imágenes)
+│   ├── components/            # Componentes reutilizables (Navbar, Footer, etc.)
+│   ├── data/                  # Archivos .json simulando una base de datos
+│   ├── hooks/                 # Lógica reutilizable (ej. formularios, filtros)
+│   ├── pages/                 # Vistas principales del sitio (cada ruta)
+│   ├── routes/                # Configuración de rutas con react-router
+│   ├── styles/                # Tailwind config / estilos base
+│   ├── App.tsx                # Componente raíz
+│   └── main.tsx               # Punto de entrada (monta la app)
+│
+├── tailwind.config.js         # Configuración de Tailwind
+├── vite.config.ts             # Configuración de Vite
+├── index.html                 # HTML principal (entrada única)
+├── README.md                  # Documentación general del proyecto
+└── package.json               # Dependencias y scripts
+
+
+
