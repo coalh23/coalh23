@@ -4,11 +4,11 @@ import ImageCarousel from '../components/ImageCarousel'
 function Inicio() {
   // Array de imágenes del carrusel
   const carouselImages = [
-    '/coalh23/public/INICIO/2023.jpg',
-    '/coalh23/public/INICIO/jesus1.png',
-    '/coalh23/public/INICIO/Bonito.jpg',
-    '/coalh23/public/INICIO/jesus2.png',
-    '/coalh23/public/INICIO/otra.jpg'
+    '/coalh23/src/assets/INICIO/2023.jpg',
+    '/coalh23/src/assets/INICIO/jesus1.png',
+    '/coalh23/src/assets/INICIO/Bonito.jpg',
+    '/coalh23/src/assets/INICIO/jesus2.png',
+    '/coalh23/src/assets/INICIO/otra.jpg'
   ];
 
   return (
