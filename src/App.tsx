@@ -1,14 +1,8 @@
-import Nav from './components/Nav'
+import Inicio from './pages/inicio'
 
 function App() {
-
   return (
-    <>
-      <Nav />
-      {/* Contenido principal */}
-      <div>
-      </div>
-    </>
+    <Inicio />
   )
 }
 
