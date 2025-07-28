@@ -4,11 +4,11 @@ import ImageCarousel from '../components/ImageCarousel'
 function Inicio() {
   // Array de imágenes del carrusel
   const carouselImages = [
-    '/INICIO/2023.jpg',
-    '/INICIO/jesus1.png',
-    '/INICIO/Bonito.jpg',
-    './INICIO/jesus2.png',
-    '/INICIO/otra.jpg'
+    '/coalh23/public/INICIO/2023.jpg',
+    '/coalh23/public/INICIO/jesus1.png',
+    '/coalh23/public/INICIO/Bonito.jpg',
+    '/coalh23/public/INICIO/jesus2.png',
+    '/coalh23/public/INICIO/otra.jpg'
   ];
 
   return (
