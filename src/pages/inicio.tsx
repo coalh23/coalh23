@@ -1,14 +1,19 @@
 import Nav from '../components/Nav'
 import ImageCarousel from '../components/ImageCarousel'
+import imagen2023 from '../../public/INICIO/2023.jpg'
+import imagenActividad from '../../public/INICIO/Actividad.jpg'
+import imagenBonito from '../../public/INICIO/Bonito.jpg'
+import imagenNinos from '../../public/INICIO/niños.jpg'
+import imagenOtra from '../../public/INICIO/otra.jpg'
 
 function Inicio() {
-  // Array de imágenes del carrusel
+  // Array de imágenes del carrusel usando imports
   const carouselImages = [
-    '/coalh23/src/assets/INICIO/2023.jpg',
-    '/coalh23/src/assets/INICIO/jesus1.png',
-    '/coalh23/src/assets/INICIO/Bonito.jpg',
-    '/coalh23/src/assets/INICIO/jesus2.png',
-    '/coalh23/src/assets/INICIO/otra.jpg'
+    imagen2023,
+    imagenActividad,
+    imagenBonito,
+    imagenNinos,
+    imagenOtra
   ];
 
   return (
