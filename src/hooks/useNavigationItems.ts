@@ -1,3 +1,9 @@
+/**
+ * Hook que proporciona los datos de navegación y estilos para el navbar
+ * @returns {Object} Objeto con navigationItems (array de enlaces) y linkClasses (clases CSS)
+ */
+
+// Componente principal
 export const useNavigationItems = () => {
   const navigationItems = [
     { href: "#contacto", label: "Contáctanos", color: "text-black" },

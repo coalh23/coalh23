@@ -1,5 +1,14 @@
+/**
+ * Hook que maneja el estado del carrusel de imágenes
+ * @param {string[]} images - Array de URLs de imágenes
+ * @param {number} autoPlayInterval - Intervalo en ms para el cambio automático
+ * @returns {Object} Objeto con estados del carrusel y funciones setter
+ */
+
+// Imports
 import { useState, useEffect } from 'react';
 
+// Componente principal
 export const useCarouselState = (images: string[], autoPlayInterval: number) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);

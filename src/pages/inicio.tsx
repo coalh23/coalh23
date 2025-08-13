@@ -1,3 +1,4 @@
+// Imports
 import Nav from '../components/Nav'
 import ImageCarousel from '../components/ImageCarousel'
 import imagen2023 from '../../public/INICIO/2023.jpg'
@@ -6,8 +7,9 @@ import imagenBonito from '../../public/INICIO/Bonito.jpg'
 import imagenNinos from '../../public/INICIO/niños.jpg'
 import imagenOtra from '../../public/INICIO/otra.jpg'
 
+// Componente principal
 function Inicio() {
-  // Array de imágenes del carrusel usando imports
+  // Array de imágenes del carrusel
   const carouselImages = [
     imagen2023,
     imagenActividad,
@@ -18,8 +20,9 @@ function Inicio() {
 
   return (
     <>
+      {/* Navbar */}
       <Nav />
-      {/* Contenido principal */}
+      {/* Carrusel */}
       <div className="relative">
         <ImageCarousel 
           images={carouselImages}

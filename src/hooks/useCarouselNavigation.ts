@@ -1,3 +1,14 @@
+/**
+ * Hook que proporciona las funciones de navegación para el carrusel
+ * @param {number} currentIndex - Índice actual de la imagen
+ * @param {boolean} isTransitioning - Estado de transición en curso
+ * @param {string[]} images - Array de URLs de imágenes
+ * @param {Function} setCurrentIndex - Función para cambiar el índice actual
+ * @param {Function} setIsTransitioning - Función para cambiar el estado de transición
+ * @returns {Object} Objeto con funciones de navegación (goToSlide, goToPrevious, goToNext)
+ */
+
+// Componente principal
 export const useCarouselNavigation = (
   currentIndex: number, 
   isTransitioning: boolean, 

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 interface AnimatedCircleProps {
   size?: number;
-  color?: string; // Ahora espera RGB como "rgb(r, g, b)"
+  color?: string;
   brightness?: number;
   opacity?: number;
   isAnimated?: boolean;

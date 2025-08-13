@@ -1,7 +1,10 @@
+// Imports
 import AnimatedCircle from './AnimatedCircle';
 import { useCarouselState } from '../hooks/useCarouselState';
 import { useCarouselNavigation } from '../hooks/useCarouselNavigation';
+import { useSwipe } from '../hooks/useSwipe';
 
+// Interfaces
 interface ImageCarouselProps {
   images: string[];
   width?: string;
@@ -11,6 +14,7 @@ interface ImageCarouselProps {
   showArrows?: boolean;
 }
 
+// Componente principal
 export default function ImageCarousel({ 
   images, 
   width = "w-full", 
@@ -36,6 +40,13 @@ export default function ImageCarousel({
     setIsTransitioning
   );
 
+  // Hook para manejar swipe en dispositivos móviles
+  const { swipeRef, onTouchStart, onTouchMove, onTouchEnd } = useSwipe({
+    minSwipeDistance: 50, // Distancia mínima para considerar un swipe
+    onSwipeLeft: goToNext, // Swipe izquierda = siguiente imagen
+    onSwipeRight: goToPrevious, // Swipe derecha = imagen anterior
+  });
+
   if (!images || images.length === 0) {
     return (
       <div className={`${width} ${height} bg-gray-200 flex items-center justify-center`}>
@@ -45,7 +56,13 @@ export default function ImageCarousel({
   }
 
   return (
-    <div className={`${width} ${height} relative overflow-hidden rounded-lg border-l-[1px] border-r-[1px] border-b-[1px] border-[var(--color-denim-100)]`}>
+    <div 
+      ref={swipeRef}
+      className={`${width} ${height} relative overflow-hidden rounded-lg border-l-[1px] border-r-[1px] border-b-[1px] border-[var(--color-denim-100)]`}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       {/* Imagen actual */}
       <div className="w-full h-full">
         <img
@@ -69,7 +86,7 @@ export default function ImageCarousel({
         title="Imagen anterior"
       >
         {/* Barra negra semi-transparente para triángulo izquierdo */}
-        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[rgba(0,0,0,0.5)] px-3 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[rgba(0,0,0,0.7)] px-3 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           {/* Triángulo izquierdo */}
           <div className="w-0 h-0 border-t-8 border-t-transparent border-r-12 border-r-white border-b-8 border-b-transparent"></div>
         </div>
@@ -81,8 +98,8 @@ export default function ImageCarousel({
         onClick={goToNext}
         title="Siguiente imagen"
       >
-        {/* Barra negra semi-transparente para triángulo derecho */}
-        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[rgba(0,0,0,0.5)] px-3 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        {/* triángulo derecho */}
+        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[rgba(0,0,0,0.7)] px-3 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           {/* Triángulo derecho */}
           <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-white border-b-8 border-b-transparent"></div>
         </div>
@@ -92,7 +109,7 @@ export default function ImageCarousel({
       {showDots && images.length > 1 && (
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
           {/* Barra negra semi-transparente */}
-          <div className="bg-[rgba(0,0,0,0.5)] px-4 py-2 rounded-full">
+          <div className="bg-[rgba(0,0,0,0.7)] px-4 py-2 rounded-full">
             <div className="flex space-x-6">
               {images.map((_, index) => (
                 <div
