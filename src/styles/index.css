@@ -23,3 +23,52 @@
 }
 
 /* Shadows e iluminación */
+
+/* Borde metálico escarchoso animado */
+.shimmer-border {
+  position: relative;
+  border-radius: var(--radius-lg);
+}
+
+/* Declaración de propiedad animable para el ángulo del gradiente */
+@property --shimmer-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.shimmer-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  padding: 1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--shimmer-angle),
+    #f5f7fa,
+    var(--color-denim-100) 12%,
+    #eef0f3 24%,
+    var(--color-ming-100) 36%,
+    #e8eaf0 48%,
+    var(--color-warm-100) 60%,
+    #eaf2ff 72%,
+    #f5f7fa 84%,
+    #ffffff
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  animation: shimmer-sweep 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer-sweep {
+  0%   { --shimmer-angle: 0deg; opacity: 0; }
+  60%  { --shimmer-angle: 240deg; opacity: 0; }
+  70%  { --shimmer-angle: 270deg; opacity: 0.9; }
+  86%  { --shimmer-angle: 330deg; opacity: 0.9; }
+  100% { --shimmer-angle: 360deg; opacity: 0; }
+}
+
